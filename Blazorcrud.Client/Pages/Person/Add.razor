@@ -5,10 +5,10 @@
 @inject NavigationManager navManager
 @inject Blazorcrud.Client.Shared.PageHistoryState PageHistoryState
 
-<h1>Create Person</h1>
+<h1>Créer un stagaire</h1>
 <br/>
 
-<Form ButtonText="Create Person" person="@person" loading="@loading"
+<Form ButtonText="Create" person="@person" loading="@loading"
             OnValidSubmit="@CreatePerson" />
 
 @code {
@@ -31,7 +31,7 @@
         try
         {
             await PersonService.AddPerson(person);
-            AlertService.Success("Person added successfully", keepAfterRouteChange: true);
+            AlertService.Success("added successfully", keepAfterRouteChange: true);
             if (PageHistoryState.CanGoBack()){
                 navManager.NavigateTo(PageHistoryState.GetGoBackPage());
             }

@@ -28,6 +28,10 @@
                     Login
                 </button>
             </EditForm>
+            <div class="mt-3 text-center">
+                <a href="/user/register">Don't have an account? Register</a>
+            </div>
+
         </div>
     </div>
 </div>
@@ -40,24 +44,14 @@
     {
         // reset alerts on submit
         AlertService.Clear();
-
         loading = true;
+
         try
         {
             await UserService.Login(loginModel);
-            var returnUrl = navManager.QueryString("returnUrl") ?? "";
-            if (returnUrl != string.Empty)
-            {
-                navManager.NavigateTo(returnUrl);
-            }
-                else{
-                if (PageHistoryState.CanGoBack()){
-                    navManager.NavigateTo(PageHistoryState.GetGoBackPage());
-                }
-                else{
-                    navManager.NavigateTo("/user/1");
-                }
-            }
+
+            // Redirection directe vers la page d'accueil après connexion
+            navManager.NavigateTo("/");
         }
         catch (Exception ex)
         {
@@ -66,4 +60,5 @@
             StateHasChanged();
         }
     }
+
 }

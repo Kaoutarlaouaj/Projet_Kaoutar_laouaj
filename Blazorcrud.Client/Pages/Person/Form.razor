@@ -82,9 +82,7 @@
             </div>
         </div>
     }
-    <div class="form-group">
-        <a href="javascript:void(0)" class="btn btn-success" @onclick="@(()=>OnAddressAdd(person))">Add Address</a>
-    </div>
+
     <hr/>
 
     <div class="form-group">
@@ -120,8 +118,5 @@
         person.Addresses.Remove(address);
     }
 
-    public void OnAddressAdd(Person person)
-    {
-        person.Addresses.Add(new Address { Street = "", City = "", State = "", ZipCode="" });
-    }
+   
 }

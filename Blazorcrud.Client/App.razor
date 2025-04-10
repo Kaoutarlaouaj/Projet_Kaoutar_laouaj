@@ -1,15 +1,15 @@
+@using Microsoft.AspNetCore.Components.Routing
 @inject NavigationManager NavigationManager
 
 <Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
-        <AppRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        <AppInitializer /> 
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
     </Found>
     <NotFound>
-        @{
-            // redirect to homepage if not found
-            NavigationManager.NavigateTo("/");
-        }
+        <LayoutView Layout="@typeof(MainLayout)">
+            <h3>Page introuvable</h3>
+            <p>La page demandée n'existe pas. Cliquez <a href="/">ici</a> pour retourner à l'accueil.</p>
+        </LayoutView>
     </NotFound>
 </Router>
-

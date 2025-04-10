@@ -5,10 +5,10 @@
 @inject NavigationManager navManager
 @inject Blazorcrud.Client.Shared.PageHistoryState PageHistoryState
 
-<h1>Edit Person</h1>
+<h1>Modification de Stagaire</h1>
 <br/>
 
-<Form ButtonText="Update Person" person="@person" loading="@loading"
+<Form ButtonText="Update" person="@person" loading="@loading"
             OnValidSubmit="@UpdatePerson" />
 
 @code {
@@ -40,7 +40,7 @@
         try
         {
             await PersonService.UpdatePerson(person);
-            AlertService.Success("Person updated successfully", keepAfterRouteChange: true);
+            AlertService.Success("updated successfully", keepAfterRouteChange: true);
             if (PageHistoryState.CanGoBack()){
                 navManager.NavigateTo(PageHistoryState.GetGoBackPage());
             }

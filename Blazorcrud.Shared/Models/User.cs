@@ -10,6 +10,7 @@ namespace Blazorcrud.Shared.Models
         public string Username {get; set;} = default!;
         public string Password {get; set;} = default!;
         public string? Token {get; set;} = default!;
+        public string Role { get; set; }
         public bool IsDeleting {get; set;} = default!;
         [JsonIgnore]
         public string? PasswordHash {get; set;}

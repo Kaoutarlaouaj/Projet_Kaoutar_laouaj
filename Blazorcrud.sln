@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazorcrud.Shared", "Blazorcrud.Shared\Blazorcrud.Shared.csproj", "{A7421497-C804-4BC0-A73B-430210F702F9}"
 EndProject
@@ -17,9 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A7421497-C804-4BC0-A73B-430210F702F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -58,5 +55,11 @@ Global
 		{75348867-CC83-4724-8011-5D5CB07010BE}.Release|x64.Build.0 = Release|Any CPU
 		{75348867-CC83-4724-8011-5D5CB07010BE}.Release|x86.ActiveCfg = Release|Any CPU
 		{75348867-CC83-4724-8011-5D5CB07010BE}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4834B688-D0EF-44FC-84F0-94C268629D37}
 	EndGlobalSection
 EndGlobal

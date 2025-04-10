@@ -4,12 +4,21 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     <a class="navbar-brand" href="/">Blazor CRUD</a>
     <div class="navbar-nav">
-        <NavLink href="/" Match="NavLinkMatch.All" class="nav-item nav-link">Home</NavLink>
-        <NavLink href="/person/1" class="nav-item nav-link">Data Entry</NavLink>
-        <NavLink href="/upload/1" class="nav-item nav-link">File Management</NavLink>
-        <NavLink href="/user/1" class="nav-item nav-link">Users</NavLink>
-        <NavLink href="/swagger/index.html" class="nav-item nav-link" target="_blank">API</NavLink>
+        @if (LoggedIn)
+        {
+            <NavLink href="/" Match="NavLinkMatch.All" class="nav-item nav-link">Accueil</NavLink>
+
+            @if (IsAdmin)
+            {
+                <NavLink href="/person/1" class="nav-item nav-link">Gérer Stagiaires</NavLink>
+            }
+            else
+            {
+                <NavLink href="/person/1" class="nav-item nav-link">Liste Stagiaires</NavLink>
+            }
+        }
     </div>
+
     <div class="navbar-nav ml-auto">
         @if (LoggedIn)
         {
@@ -18,6 +27,7 @@
         else
         {
             <NavLink href="/user/login" class="nav-item nav-link">Login</NavLink>
+            <NavLink href="/user/register" class="nav-item nav-link">Register</NavLink>
         }
     </div>
 </nav>
@@ -31,14 +41,12 @@
     </div>
     <footer class="footer">
         <div class="container text-center">
-            <span class="text-muted">&copy; Beckshome.com 2024</span>
+            <span class="text-muted">&copy; Kaoutar Laouaj 2025</span>
         </div>
     </footer>
 </div>
 
 @code {
-    public bool LoggedIn
-    {
-        get {return UserService.User != null;}
-    }
+    public bool LoggedIn => UserService.User != null;
+    public bool IsAdmin => UserService.User?.Role == "admin";
 }

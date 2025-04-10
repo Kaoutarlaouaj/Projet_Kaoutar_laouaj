@@ -1,4 +1,5 @@
 using Blazorcrud.Server.Authorization;
+using Blazorcrud.Server.Helpers;
 using Blazorcrud.Server.Models;
 using Blazorcrud.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -28,6 +29,20 @@ namespace Blazorcrud.Server.Controllers
         public ActionResult Authenticate(AuthenticateRequest request)
         {
             return Ok(_userRepository.Authenticate(request));
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(User user)
+        {
+            try
+            {
+                var createdUser = await _userRepository.AddUser(user);
+                return Ok(createdUser);
+            }
+            catch (AppException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
 
